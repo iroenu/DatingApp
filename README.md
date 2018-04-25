@@ -1,0 +1,2 @@
+[![CircleCI](https://circleci.com/gh/iroenu/DatingApp.svg?style=svg)](https://circleci.com/gh/iroenu/DatingApp)
+[![codecov](https://codecov.io/gh/iroenu/DatingApp/branch/master/graph/badge.svg)](https://codecov.io/gh/iroenu/DatingApp)
