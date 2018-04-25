@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <TextView
         android:id="@+id/message"
         android:layout_width="match_parent"
@@ -15,13 +17,133 @@
         android:textStyle="bold" />
 
 
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="205dp"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/pic" />
+
+    <RelativeLayout
+        android:id="@+id/DisplayName"
+        android:layout_width="408dp"
+        android:layout_height="38dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="138dp">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="Name:   "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/nameMessage"
+            android:layout_width="match_parent"
+            android:layout_height="136dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:textColor="#8e8c8c"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/DisplayOccuption"
+        android:layout_width="408dp"
+        android:layout_height="38dp"
+        android:layout_alignBottom="@+id/message"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="Occuption:   "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/occuptionMessage"
+            android:layout_width="match_parent"
+            android:layout_height="136dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="123dp"
+            android:textColor="#8e8c8c"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/DisplayAge"
+        android:layout_width="408dp"
+        android:layout_height="38dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/DisplayName">
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="Age:   "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/ageMessage"
+            android:layout_width="match_parent"
+            android:layout_height="136dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="123dp"
+            android:textColor="#8e8c8c"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/DisplayDescription"
+        android:layout_width="408dp"
+        android:layout_height="144dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/message">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="Description:   "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/descriptionMessage"
+            android:layout_width="match_parent"
+            android:layout_height="136dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="123dp"
+            android:textColor="#8e8c8c"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
     <Button
         android:id="@+id/returnButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="112dp"
         android:background="#150"
         android:text="Return"
         android:textColor="#fff"
