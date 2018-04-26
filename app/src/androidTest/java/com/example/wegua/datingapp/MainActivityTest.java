@@ -18,6 +18,8 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExtra;
+import static android.support.test.espresso.matcher.ViewMatchers.hasErrorText;
+import static android.support.test.espresso.matcher.ViewMatchers.hasFocus;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -49,5 +51,59 @@ public class MainActivityTest {
             Intents.release();
         }
     }
+
+    @Test
+    public void emptyNameInput(){
+        onView(withId(R.id.name)).perform(typeText(""));
+        onView(withId(R.id.age)).perform(typeText("30"));
+        onView(withId(R.id.occuption)).perform(typeText("Basketball Player"));
+        onView(withId(R.id.description)).perform(typeText("He is famous basketball player"));
+
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.signupButton)).perform(click());
+        onView(withId(R.id.name)).check(matches((hasErrorText("Please enter your name"))));
+        onView(withId(R.id.name)).check(matches(hasFocus()));
+    }
+
+    @Test
+    public void emptyAgeInput(){
+
+        onView(withId(R.id.name)).perform(typeText("Stephen Curry"));
+        onView(withId(R.id.age)).perform(typeText(""));
+        onView(withId(R.id.occuption)).perform(typeText("Basketball Player"));
+        onView(withId(R.id.description)).perform(typeText("He is famous basketball player"));
+
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.signupButton)).perform(click());
+        onView(withId(R.id.age)).check(matches((hasErrorText("Please enter your age"))));
+        onView(withId(R.id.age)).check(matches(hasFocus()));
+    }
+    @Test
+    public void emptyOccuptionInput() {
+        onView(withId(R.id.name)).perform(typeText("Stephen Curry"));
+        onView(withId(R.id.age)).perform(typeText("30"));
+        onView(withId(R.id.occuption)).perform(typeText(""));
+        onView(withId(R.id.description)).perform(typeText("He is famous basketball player"));
+
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.signupButton)).perform(click());
+        onView(withId(R.id.occuption)).check(matches((hasErrorText("Please enter your occuption"))));
+        onView(withId(R.id.occuption)).check(matches(hasFocus()));
+    }
+
+    @Test
+    public void emptyDescriptionInput(){
+        onView(withId(R.id.name)).perform(typeText("Stephen Curry"));
+        onView(withId(R.id.age)).perform(typeText("30"));
+        onView(withId(R.id.occuption)).perform(typeText("Basketball Player"));
+        onView(withId(R.id.description)).perform(typeText(""));
+
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.signupButton)).perform(click());
+        onView(withId(R.id.description)).check(matches((hasErrorText("Please enter your description"))));
+        onView(withId(R.id.description)).check(matches(hasFocus()));
+    }
+
+
 
 }

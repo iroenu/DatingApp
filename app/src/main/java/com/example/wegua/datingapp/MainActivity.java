@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
                     name.setError("Please enter your name");
                     name.requestFocus();
                 } else if (age.getText().toString().trim().isEmpty()){
-                    age.setError("Please enter your username");
+                    age.setError("Please enter your age");
                     age.requestFocus();
                 } else if (occuption.getText().toString().trim().isEmpty()){
-                    occuption.setError("Please enter your username");
+                    occuption.setError("Please enter your occuption");
                     occuption.requestFocus();
                 } else if (description.getText().toString().trim().isEmpty()){
-                    description.setError("Please enter your username");
+                    description.setError("Please enter your description");
                     description.requestFocus();
                 }else {
                     Intent intent = new Intent(MainActivity.this, MainActivity2.class);
@@ -91,6 +91,12 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState.containsKey(Constants.KEY_DESCRIPTION)) {
             description.setText((String) savedInstanceState.get(Constants.KEY_DESCRIPTION));
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(TAG, "onRestart()");
     }
 
     @Override

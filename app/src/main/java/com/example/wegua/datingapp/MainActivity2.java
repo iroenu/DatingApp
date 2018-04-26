@@ -35,11 +35,6 @@ public class MainActivity2 extends AppCompatActivity {
         Log.i(TAG, "onCreate()");
     }
 
-    public void goToMainActivity(View view) {
-        Intent intent = new Intent(MainActivity2.this, MainActivity.class);
-        startActivity(intent);
-    }
-
     @Override
     protected void onRestart() {
         super.onRestart();
