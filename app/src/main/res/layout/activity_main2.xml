@@ -4,19 +4,6 @@
     android:layout_height="match_parent">
 
 
-
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="match_parent"
-        android:layout_height="136dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="123dp"
-        android:textColor="#8e8c8c"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="205dp"
@@ -44,12 +31,10 @@
         <TextView
             android:id="@+id/nameMessage"
             android:layout_width="match_parent"
-            android:layout_height="136dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:textColor="#8e8c8c"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/textView12"
+            android:layout_toRightOf="@+id/textView12"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
     </RelativeLayout>
 
@@ -57,36 +42,44 @@
         android:id="@+id/DisplayOccuption"
         android:layout_width="408dp"
         android:layout_height="38dp"
-        android:layout_alignBottom="@+id/message"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="223dp">
+
+        <TextView
+            android:id="@+id/occuptionMessage"
+            android:layout_width="256dp"
+            android:layout_height="37dp"
+            android:layout_alignParentStart="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginStart="124dp" />
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:text="Occuption:   "
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/occuptionMessage"
-            android:layout_width="match_parent"
-            android:layout_height="136dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="123dp"
-            android:textColor="#8e8c8c"
-            android:textSize="30sp"
-            android:textStyle="bold" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/DisplayAge"
-        android:layout_width="408dp"
+        android:layout_width="match_parent"
         android:layout_height="38dp"
+        android:layout_above="@+id/DisplayOccuption"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/DisplayName">
+        android:layout_marginBottom="-223dp">
+
+        <TextView
+            android:id="@+id/ageMessage"
+            android:layout_width="322dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_toEndOf="@+id/textView14" />
 
         <TextView
             android:id="@+id/textView14"
@@ -96,25 +89,14 @@
             android:text="Age:   "
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
-            android:id="@+id/ageMessage"
-            android:layout_width="match_parent"
-            android:layout_height="136dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="123dp"
-            android:textColor="#8e8c8c"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/DisplayDescription"
         android:layout_width="408dp"
-        android:layout_height="144dp"
+        android:layout_height="190dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/message">
+        android:layout_below="@+id/DisplayOccuption">
 
         <TextView
             android:id="@+id/textView15"
@@ -127,27 +109,15 @@
         <TextView
             android:id="@+id/descriptionMessage"
             android:layout_width="match_parent"
-            android:layout_height="136dp"
+            android:layout_height="161dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="123dp"
+            android:layout_marginTop="29dp"
             android:textColor="#8e8c8c"
             android:textSize="30sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
 
-
-    <Button
-        android:id="@+id/returnButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:background="#150"
-        android:text="Return"
-        android:textColor="#fff"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
 </RelativeLayout>

@@ -1,12 +1,12 @@
 package com.example.wegua.datingapp;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 
 import java.util.Calendar;
@@ -21,10 +21,14 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        name = (EditText) findViewById(R.id.name);
+        age = (EditText) findViewById(R.id.age);
+        occuption = (EditText) findViewById(R.id.occuption);
+        description = (EditText) findViewById(R.id.description);
         button = (Button) findViewById(R.id.signupButton);
         // perform click event on submit button
         button.setOnClickListener(new View.OnClickListener() {
@@ -43,23 +47,22 @@ public class MainActivity extends AppCompatActivity {
                     description.setError("Please enter your username");
                     description.requestFocus();
                 }else {
-                    name = (EditText) findViewById(R.id.name);
-                    age = (EditText) findViewById(R.id.age);
-                    occuption = (EditText) findViewById(R.id.occuption);
-                    description = (EditText) findViewById(R.id.description);
-                    Log.i(TAG, "onCreate()");
+                    Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                    intent.putExtra(Constants.KEY_NAME, name.getText().toString());
+                    intent.putExtra(Constants.KEY_AGE,age.getText().toString());
+                    intent.putExtra(Constants.KEY_OCCUPTION,occuption.getText().toString());
+                    intent.putExtra(Constants.KEY_DESCRIPTION,description.getText().toString());
+                    startActivity(intent);
+//                    goToSecondActivity(view);
+
                 }
             }
         });
+        Log.i(TAG, "onCreate()");
     }
 
-    public void sendMessage() {
-        Intent intent = new Intent(MainActivity.this, MainActivity.class);
-        intent.putExtra("name", name.getText().toString());
-        intent.putExtra("age",age.getText().toString());
-        intent.putExtra("occuption",occuption.getText().toString());
-        intent.putExtra("description",description.getText().toString());
-        startActivity(intent);
+    public void goToSecondActivity(View view) {
+
     }
 
     @Override
@@ -93,5 +96,29 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState.containsKey(Constants.KEY_DESCRIPTION)) {
             description.setText((String) savedInstanceState.get(Constants.KEY_DESCRIPTION));
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG, "onStop()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "onDestroy()");
     }
 }
