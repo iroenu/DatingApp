@@ -53,17 +53,12 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra(Constants.KEY_OCCUPTION,occuption.getText().toString());
                     intent.putExtra(Constants.KEY_DESCRIPTION,description.getText().toString());
                     startActivity(intent);
-//                    goToSecondActivity(view);
-
                 }
             }
         });
         Log.i(TAG, "onCreate()");
     }
 
-    public void goToSecondActivity(View view) {
-
-    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
