@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         occuption = (EditText) findViewById(R.id.occuption);
         description = (EditText) findViewById(R.id.description);
         button = (Button) findViewById(R.id.signupButton);
-        // perform click event on submit button
+        // perform click event on sign up button
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

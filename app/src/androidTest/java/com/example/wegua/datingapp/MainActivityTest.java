@@ -3,10 +3,13 @@ package com.example.wegua.datingapp;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.support.test.espresso.Espresso;
+import android.view.View;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -28,14 +31,20 @@ public class MainActivityTest {
 
     @Test
     public void canGoToMainActivity2() {
-        onView(withId(R.id.name)).perform(typeText("Stephen Curry"));
 
+        onView(withId(R.id.name)).perform(typeText("Stephen Curry"));
+        onView(withId(R.id.age)).perform(typeText("30"));
+        onView(withId(R.id.occuption)).perform(typeText("Basketball Player"));
+        onView(withId(R.id.description)).perform(typeText("He is famous basketball player"));
         try {
             Intents.init();
-            onView(withId(R.id.signupButton)).perform(scrollTo(), click());
+            Espresso.closeSoftKeyboard();
+            onView(withId(R.id.signupButton)).perform(click());
             intended(hasComponent(MainActivity2.class.getName()));
             intended(hasExtra(Constants.KEY_NAME, "Stephen Curry"));
-            intended(hasExtra(Constants.KEY_AGE, 30));
+            intended(hasExtra(Constants.KEY_AGE, "30"));
+            intended(hasExtra(Constants.KEY_OCCUPTION, "Basketball Player"));
+            intended(hasExtra(Constants.KEY_DESCRIPTION, "He is famous basketball player"));
         } finally {
             Intents.release();
         }

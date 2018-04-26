@@ -33,31 +33,6 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/NameLayout">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:text="Email   "
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/textView2"
-            android:layout_toRightOf="@+id/textView2"
-            android:hint="Enter your email address"
-            android:inputType="textEmailAddress" />
-    </RelativeLayout>
-
-    <RelativeLayout
         android:id="@+id/Age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,7 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/Email">
+        android:layout_below="@+id/NameLayout">
 
         <TextView
             android:id="@+id/textView5"
@@ -112,9 +87,9 @@
     <RelativeLayout
         android:id="@+id/Description"
         android:layout_width="408dp"
-        android:layout_height="144dp"
+        android:layout_height="194dp"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true">
+        android:layout_below="@+id/Age">
 
         <TextView
             android:id="@+id/textView6"
