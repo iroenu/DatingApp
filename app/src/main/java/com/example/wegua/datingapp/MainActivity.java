@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     age.setError("Please enter your age");
                     age.requestFocus();
                 } else if (occuption.getText().toString().trim().isEmpty()){
-                    occuption.setError("Please enter your occuption");
+                    occuption.setError("Please enter your occupation");
                     occuption.requestFocus();
                 } else if (description.getText().toString().trim().isEmpty()){
                     description.setError("Please enter your description");

@@ -32,6 +32,16 @@ public class MainActivityTest {
             = new ActivityTestRule<>(MainActivity.class);
 
     @Test
+    public void canEnterNameWithRotate() {
+        onView(withId(R.id.name)).perform(typeText("Stephen Curry"));
+        onView(withId(R.id.age)).perform(typeText("30"));
+        onView(withId(R.id.occuption)).perform(typeText("Basketball Player"));
+        onView(withId(R.id.description)).perform(typeText("He is famous basketball player"));
+
+        TestUtils.rotateScreen(activityTestRule.getActivity());
+    }
+
+    @Test
     public void canGoToMainActivity2() {
 
         onView(withId(R.id.name)).perform(typeText("Stephen Curry"));
@@ -87,7 +97,7 @@ public class MainActivityTest {
 
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.signupButton)).perform(click());
-        onView(withId(R.id.occuption)).check(matches((hasErrorText("Please enter your occuption"))));
+        onView(withId(R.id.occuption)).check(matches((hasErrorText("Please enter your occupation"))));
         onView(withId(R.id.occuption)).check(matches(hasFocus()));
     }
 
