@@ -29,4 +29,16 @@ public class MainActivity2Test {
         }
     };
 
+    @Test
+    public void displayRightMessageBasedOnIntentExtra() {
+        onView(withId(R.id.nameMessage))
+                .check(matches(withText("Stephen Curry")));
+        onView(withId(R.id.ageMessage))
+                .check(matches(withText("30")));
+        onView(withId(R.id.descriptionMessage))
+                .check(matches(withText("He is famous basketball player")));
+        onView(withId(R.id.occuptionMessage))
+                .check(matches(withText("Basketball Player")));
+    }
+
 }
