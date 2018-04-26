@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -25,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name = (EditText) findViewById(R.id.name);
-        age = (EditText) findViewById(R.id.age);
-        occuption = (EditText) findViewById(R.id.occuption);
-        description = (EditText) findViewById(R.id.description);
-        button = (Button) findViewById(R.id.signupButton);
+        name =  findViewById(R.id.name);
+        age =  findViewById(R.id.age);
+        occuption =  findViewById(R.id.occuption);
+        description =  findViewById(R.id.description);
+        button =  findViewById(R.id.signupButton);
         // perform click event on sign up button
         button.setOnClickListener(new View.OnClickListener() {
             @Override
