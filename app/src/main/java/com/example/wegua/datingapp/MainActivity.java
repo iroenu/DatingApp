@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     description.setError("Please enter your description");
                     description.requestFocus();
                 }else {
-                    Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                    Intent intent = new Intent(MainActivity.this, FragmentActivity.class);
                     intent.putExtra(Constants.KEY_NAME, name.getText().toString());
                     intent.putExtra(Constants.KEY_AGE,age.getText().toString());
                     intent.putExtra(Constants.KEY_OCCUPTION,occuption.getText().toString());

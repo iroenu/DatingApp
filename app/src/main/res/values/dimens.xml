@@ -12,4 +12,5 @@
     <dimen name="description_margin_top">29dp</dimen>
     <dimen name="description_height">161dp</dimen>
     <dimen name="message_height">38dp</dimen>
+    <dimen name="description_text_size">30sp</dimen>
 </resources>

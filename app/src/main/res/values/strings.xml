@@ -10,4 +10,6 @@
     <string name="text_decription">Decription</string>
     <string name="enter_description">Please descripe yourself</string>
     <string name="botton_name">Sign Up</string>
+    <string name="setting_text">This is where Settings will go</string>
+    <string name="match_text">This is where Matches will go</string>
 </resources>

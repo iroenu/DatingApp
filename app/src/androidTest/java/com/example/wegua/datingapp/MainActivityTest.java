@@ -38,8 +38,9 @@ public class MainActivityTest {
         TestUtils.rotateScreen(activityTestRule.getActivity());
     }
 
+    /*
     @Test
-    public void canGoToMainActivity2() {
+    public void canGoToFragmentActivity() {
 
         onView(withId(R.id.name)).perform(typeText("Stephen Curry"));
         onView(withId(R.id.age)).perform(typeText("30"));
@@ -49,7 +50,7 @@ public class MainActivityTest {
             Intents.init();
             Espresso.closeSoftKeyboard();
             onView(withId(R.id.signupButton)).perform(click());
-            intended(hasComponent(MainActivity2.class.getName()));
+            intended(hasComponent(FragmentActivity.class.getName()));
             intended(hasExtra(Constants.KEY_NAME, "Stephen Curry"));
             intended(hasExtra(Constants.KEY_AGE, "30"));
             intended(hasExtra(Constants.KEY_OCCUPTION, "Basketball Player"));
@@ -59,6 +60,7 @@ public class MainActivityTest {
         }
     }
 
+*/
     @Test
     public void emptyNameInput(){
         onView(withId(R.id.name)).perform(typeText(""));
