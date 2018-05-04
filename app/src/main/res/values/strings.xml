@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">DatingApp</string>
-    <string name="author">Programmer: Guan, Wenbin 04/20/2018</string>
+    <string name="author">Programmer: Guan, Wenbin 05/02/2018</string>
     <string name="text_name">Name</string>
     <string name="enter_your_name">Enter your name..</string>
     <string name="text_age">Age</string>

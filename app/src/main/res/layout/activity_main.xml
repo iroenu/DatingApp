@@ -119,7 +119,7 @@
         android:background="@color/background"
         android:text="@string/botton_name"
         android:textColor="@color/button_color"
-        android:textSize="20sp"
+        android:textSize="@dimen/button_text_size"
         android:textStyle="bold" />
 
     <TextView

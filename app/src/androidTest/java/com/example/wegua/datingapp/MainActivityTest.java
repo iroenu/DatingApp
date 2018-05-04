@@ -38,7 +38,6 @@ public class MainActivityTest {
         TestUtils.rotateScreen(activityTestRule.getActivity());
     }
 
-    /*
     @Test
     public void canGoToFragmentActivity() {
 
@@ -60,7 +59,7 @@ public class MainActivityTest {
         }
     }
 
-*/
+
     @Test
     public void emptyNameInput(){
         onView(withId(R.id.name)).perform(typeText(""));
@@ -112,7 +111,6 @@ public class MainActivityTest {
         onView(withId(R.id.description)).check(matches((hasErrorText("Please enter your description"))));
         onView(withId(R.id.description)).check(matches(hasFocus()));
     }
-
 
 
 }

@@ -38,6 +38,7 @@ public class FragmentActivityTest {
         }
     };
 
+
     @Test
     public void displayRightMessageBasedOnIntentExtra() {
         onView(withId(R.id.nameMessage))

@@ -6,10 +6,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -18,7 +17,7 @@ import java.util.List;
 
 public class FragmentActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity2.class.getSimpleName();
+    private static final String TAG = FragmentActivity.class.getSimpleName();
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Toolbar toolbar;
@@ -38,12 +37,17 @@ public class FragmentActivity extends AppCompatActivity {
         bundle.putString("description",intent.getStringExtra("description"));
         fragment = new ProfileFragment();
         fragment.setArguments(bundle);
-        toolbar = findViewById(R.id.toolbar);
 
-        viewPager = findViewById(R.id.viewpager);
+        // Adding Toolbar to Main screen
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Setting ViewPager for each Tabs
+        viewPager = (ViewPager)findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 
-        tabLayout = findViewById(R.id.tabs);
+        // Set Tabs inside Toolbar
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
         Log.i(TAG, "onCreate()");
