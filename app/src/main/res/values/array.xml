@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="schools">
+        <item>North Seattle Community College</item>
+        <item>Seattle Central College</item>
+        <item>University of Washington</item>
+        <item>Seattle University</item>
+    </string-array>
+    <string-array name="schools_desc">
+        <item>This is North Seattle Community College.</item>
+        <item>This is Seattle Central College.</item>
+        <item>This is University of Washington.</item>
+        <item>This is Seattle University.</item>
+    </string-array>
+    <array name="schools_picture">
+        <item>@drawable/nscc</item>
+        <item>@drawable/scc</item>
+        <item>@drawable/uw</item>
+        <item>@drawable/su</item>
+    </array>
+</resources>
