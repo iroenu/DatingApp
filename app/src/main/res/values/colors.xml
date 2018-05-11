@@ -8,4 +8,7 @@
     <color name="background">#150</color>
     <color name="setting_bg_color">#ffea00</color>
     <color name="match_bg_color">#ffea00</color>
+    <color name="title_color">#FFFFFF</color>
+    <color name="card_text_color">#424242</color>
+    <color name="su_title_color">#9E9E9E</color>
 </resources>
