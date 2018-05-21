@@ -1,5 +1,6 @@
 package com.example.wegua.datingapp;
 
+import com.example.wegua.datingapp.ViewModel.MatchViewModel;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.List;
 
 public class MatchFragment extends Fragment{
 
@@ -57,7 +59,7 @@ public class MatchFragment extends Fragment{
             super(inflater.inflate(R.layout.card, parent, false));
             picture = (ImageView) itemView.findViewById(R.id.card_image);
             name = (TextView) itemView.findViewById(R.id.card_title);
-            description = (TextView) itemView.findViewById(R.id.card_text);
+//            description = (TextView) itemView.findViewById(R.id.card_text);
             button = (Button) itemView.findViewById(R.id.like_button);
 
             button.setOnClickListener(new View.OnClickListener() {

@@ -57,7 +57,7 @@ public class FragmentActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(this.fragment, "Profile");
-        adapter.addFrag(new MatchFragment(), "Matches");
+        adapter.addFrag(new MatchesFragment(), "Matches");
         adapter.addFrag(new SettingFragment(), "Setting");
         viewPager.setAdapter(adapter);
     }

@@ -56,8 +56,6 @@ public class FragmentActivityTest {
     }
 
 
-
-
     @Test
     public void canGoToFragments() {
 
@@ -69,16 +67,6 @@ public class FragmentActivityTest {
             onView(withText("Matches")).perform(click());
 
             onView(withId(R.id.recycler_view)).perform(RecyclerViewActions.scrollToPosition(1));
-
-
-
-            /*
-            onView(withId(R.id.recycler_view)).perform(RecyclerViewActions
-                    .actionOnItem(first(hasDescendant(withText("Online sale"))), click()));
-            onView(withRecyclerView(R.id.recycler_view)
-                    .atPositionOnView(1, R.id.ofElementYouWantToCheck))
-                    .check(matches(withText("Test text")));
-*/
 
             TestUtils.rotateScreen(activityTestRule.getActivity());
 
