@@ -1,6 +1,5 @@
 package com.example.wegua.datingapp;
 
-import com.example.wegua.datingapp.ViewModel.MatchViewModel;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -18,7 +17,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.List;
 
 public class MatchFragment extends Fragment{
 

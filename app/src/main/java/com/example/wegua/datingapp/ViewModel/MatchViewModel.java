@@ -5,7 +5,6 @@ import com.example.wegua.datingapp.DataModel.MatchModel;
 import com.google.firebase.database.DataSnapshot;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Consumer;
 
 public class MatchViewModel {
@@ -27,7 +26,7 @@ public class MatchViewModel {
                     for (DataSnapshot matchSnapshot : dataSnapshot.getChildren()) {
                         Match match = matchSnapshot.getValue(Match.class);
                         assert match != null;
-                        match.matchId = matchSnapshot.getKey();
+                        match.uid = matchSnapshot.getKey();
                         matchItems.add(match);
                     }
                     responseCallback.accept(matchItems);

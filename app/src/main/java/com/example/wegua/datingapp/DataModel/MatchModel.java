@@ -10,7 +10,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class MatchModel {
 
@@ -47,7 +46,7 @@ public class MatchModel {
 
     public void updateMatchById(Match match) {
         DatabaseReference matchesRef = mDatabase.child("matches");
-        matchesRef.child(match.matchId).setValue(match);
+        matchesRef.child(match.uid).setValue(match);
     }
 
 

@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="text_color">#8e8c8c</color>
-    <color name="button_color">#f4cccc</color>
+    <color name="button_color">#fcfbfb</color>
     <color name="background">#150</color>
     <color name="setting_bg_color">#ffea00</color>
     <color name="match_bg_color">#ffea00</color>

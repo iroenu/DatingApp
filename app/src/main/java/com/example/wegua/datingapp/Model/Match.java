@@ -14,43 +14,39 @@ import java.util.Map;
 public class Match implements Parcelable{
 
 
-    public String matchId;
-    public String title;
-    public String matchImageURL;
-    public Boolean like;
+    public String uid;
+    public String name;
+    public String imageUrl;
+    public Boolean liked;
 
     public Match() {
 
     }
 
     public Match (String mImageURL,Boolean mLiked,String mTitle,String mId){
-        this.matchImageURL = mImageURL;
-        this.like = mLiked;
-        this.title = mTitle;
-        this.matchId = mId;
+        this.imageUrl = mImageURL;
+        this.liked = mLiked;
+        this.name = mTitle;
+        this.uid = mId;
     }
 
     public Match(Parcel in) {
-        matchImageURL = in.readString();
-        like = in.readByte() != 0;
-        title = in.readString();
-        matchId = in.readString();
+        imageUrl = in.readString();
+        liked = in.readByte() != 0;
+        name = in.readString();
+        uid = in.readString();
     }
 
-    public String getId() {
-        return matchId;
+    public String getUid(){
+        return uid;
     }
 
-    public String getTitle(){
-        return title;
+    public String getName(){
+        return name;
     }
 
-    public String getImageURL(){
-        return matchImageURL;
-    }
-
-    public boolean getLike(){
-        return like;
+    public String getImageUrl(){
+        return imageUrl;
     }
 
     public static final Creator<Match> CREATOR = new Creator<Match>() {
@@ -68,10 +64,10 @@ public class Match implements Parcelable{
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("imageUrl", matchImageURL);
-        result.put("liked", like);
-        result.put("name", title);
-        result.put("uid", matchId);
+        result.put("imageUrl", imageUrl);
+        result.put("liked", liked);
+        result.put("name", name);
+        result.put("uid", uid);
 
         return result;
     }
@@ -83,10 +79,10 @@ public class Match implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(matchImageURL);
-        dest.writeByte((byte) (like ? 1 : 0));
-        dest.writeString(title);
-        dest.writeString(matchId);
+        dest.writeString(imageUrl);
+        dest.writeByte((byte) (liked ? 1 : 0));
+        dest.writeString(name);
+        dest.writeString(uid);
 
     }
 }
