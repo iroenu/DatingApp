@@ -23,36 +23,10 @@ public class Match implements Parcelable{
 
     }
 
-    public Match (String mImageURL,Boolean mLiked,String mTitle,String mId){
-        this.imageUrl = mImageURL;
-        this.liked = mLiked;
-        this.name = mTitle;
-        this.uid = mId;
-    }
-
-    public Match(Parcel in) {
-        imageUrl = in.readString();
-        liked = in.readByte() != 0;
-        name = in.readString();
-        uid = in.readString();
-    }
-
-    public String getUid(){
-        return uid;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public String getImageUrl(){
-        return imageUrl;
-    }
-
     public static final Creator<Match> CREATOR = new Creator<Match>() {
         @Override
         public Match createFromParcel(Parcel in) {
-            return new Match(in);
+            return new Match();
         }
 
         @Override
@@ -60,17 +34,6 @@ public class Match implements Parcelable{
             return new Match[size];
         }
     };
-
-    @Exclude
-    public Map<String, Object> toMap() {
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("imageUrl", imageUrl);
-        result.put("liked", liked);
-        result.put("name", name);
-        result.put("uid", uid);
-
-        return result;
-    }
 
     @Override
     public int describeContents() {

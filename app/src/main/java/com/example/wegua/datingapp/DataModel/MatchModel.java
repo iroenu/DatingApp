@@ -49,9 +49,4 @@ public class MatchModel {
         matchesRef.child(match.uid).setValue(match);
     }
 
-
-    public void clear() {
-        // Clear all the listeners onPause
-        listeners.forEach(Query::removeEventListener);
-    }
 }

@@ -1,10 +1,12 @@
 package com.example.wegua.datingapp;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,6 +23,8 @@ import com.squareup.picasso.Picasso;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+
 import com.example.wegua.datingapp.Model.Match;
 
 public class MatchesFragment extends Fragment {
@@ -36,10 +40,16 @@ public class MatchesFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.recycler_view, container, false);
 
         Bundle bundle = new Bundle();
+
+//      ContentAdapter adapter = new ContentAdapter(bundle);
+        ContentAdapter adapter = new ContentAdapter(matchData);
+
         matchView.getMatch(
                 (ArrayList<Match> matches) -> {
-                    bundle.putParcelableArrayList("matches", matches);
-                    ContentAdapter adapter = new ContentAdapter(bundle);
+                 bundle.putParcelableArrayList("matches", matches);
+//                    ContentAdapter adapter = new ContentAdapter(bundle);
+                    ArrayList<Match> list = bundle.getParcelableArrayList("matches");
+                    adapter.updateEmployeeListItems(list);
                     recyclerView.setAdapter(adapter);
 
                 }
@@ -99,14 +109,25 @@ public class MatchesFragment extends Fragment {
 
         private ArrayList<Match> mMatch;
 
-        public ContentAdapter(Bundle matchlist) {
-            mMatch = matchlist.getParcelableArrayList("matches");
+       public ContentAdapter(ArrayList<Match> list) {
+//       public ContentAdapter(Bundle matchlist) {
+//            mMatch = matchlist.getParcelableArrayList("matches");
+           mMatch = list;
         }
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
 
             return new ViewHolder(LayoutInflater.from(parent.getContext()), parent);
+        }
+
+        public void updateEmployeeListItems(List<Match> match) {
+            final MatchDiffCallback diffCallback = new MatchDiffCallback(this.mMatch, match);
+            final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
+
+            this.mMatch.clear();
+            this.mMatch.addAll(match);
+            diffResult.dispatchUpdatesTo(this);
         }
 
         @Override
