@@ -1,8 +1,6 @@
 package com.example.wegua.datingapp;
 
-import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,11 +17,7 @@ import android.widget.Toast;
 
 import com.example.wegua.datingapp.ViewModel.MatchViewModel;
 import com.squareup.picasso.Picasso;
-
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.example.wegua.datingapp.Model.Match;
 
@@ -37,27 +31,27 @@ public class MatchesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.recycler_view, container, false);
+    RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.recycler_view, container, false);
 
-        Bundle bundle = new Bundle();
+     Bundle bundle = new Bundle();
+     ContentAdapter adapter = new ContentAdapter(matchData);
 
-//      ContentAdapter adapter = new ContentAdapter(bundle);
-        ContentAdapter adapter = new ContentAdapter(matchData);
-
+     recyclerView.setAdapter(adapter);
         matchView.getMatch(
-                (ArrayList<Match> matches) -> {
-                 bundle.putParcelableArrayList("matches", matches);
-//                    ContentAdapter adapter = new ContentAdapter(bundle);
-                    ArrayList<Match> list = bundle.getParcelableArrayList("matches");
-                    adapter.updateEmployeeListItems(list);
-                    recyclerView.setAdapter(adapter);
+
+               (ArrayList<Match> matches) -> {
+               bundle.putParcelableArrayList("matches", matches);
+               ArrayList<Match> list = bundle.getParcelableArrayList("matches");
+               adapter.updateEmployeeListItems(matches);
+               recyclerView.setAdapter(adapter);
 
                 }
         );
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        return recyclerView;
+
+      return recyclerView;
     }
 
     public MatchesFragment(){
@@ -82,20 +76,18 @@ public class MatchesFragment extends Fragment {
             picture = (ImageView) itemView.findViewById(R.id.card_image);
             button = (ImageButton) itemView.findViewById(R.id.like_button);
 
-
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     if(match.liked ==false) {
                         String message = "You Liked " + title.getText();
                         Toast.makeText(v.getContext(), message,
                                 Toast.LENGTH_LONG).show();
-
                         match.liked = true;
                     } else{
                         match.liked = false;
                     }
-
                     matchView.updateMatch(match);
                 }
             });
@@ -106,12 +98,9 @@ public class MatchesFragment extends Fragment {
      * Adapter to display recycler view.
      */
     public class ContentAdapter extends RecyclerView.Adapter<ViewHolder> {
-
-        private ArrayList<Match> mMatch;
+      public ArrayList<Match> mMatch;
 
        public ContentAdapter(ArrayList<Match> list) {
-//       public ContentAdapter(Bundle matchlist) {
-//            mMatch = matchlist.getParcelableArrayList("matches");
            mMatch = list;
         }
 
@@ -121,7 +110,7 @@ public class MatchesFragment extends Fragment {
             return new ViewHolder(LayoutInflater.from(parent.getContext()), parent);
         }
 
-        public void updateEmployeeListItems(List<Match> match) {
+        public void updateEmployeeListItems(ArrayList<Match> match) {
             final MatchDiffCallback diffCallback = new MatchDiffCallback(this.mMatch, match);
             final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
 
@@ -142,7 +131,6 @@ public class MatchesFragment extends Fragment {
             }else{
                 holder.button.setColorFilter(Color.BLACK);
             }
-
         }
         @Override
         public int getItemCount() {

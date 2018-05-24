@@ -67,7 +67,7 @@ public class FragmentActivityTest {
             onView(withText("Matches")).perform(click());
 
             onView(withId(R.id.recycler_view)).perform(RecyclerViewActions.scrollToPosition(1));
-
+            
             TestUtils.rotateScreen(activityTestRule.getActivity());
 
             onView(withText("Setting")).perform(click());
