@@ -1,13 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textView60"
+        android:id="@+id/user_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/setting_bg_color"
-        android:text="@string/setting_text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-</LinearLayout>
+        android:layout_marginTop="@dimen/user_text"
+        android:textSize="@dimen/reminder_time_text"
+        android:text="@string/user_login_name" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="@dimen/user_width"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/user_text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/reminderTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reminder_time"
+        android:textSize="@dimen/reminder_time_text" />
+
+    <Spinner
+        android:id="@+id/hour"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="@dimen/spinner_width"
+        android:layout_height="@dimen/spinner_height"
+        app:layout_constraintTop_toBottomOf="@+id/reminderTime"
+        android:entries="@array/hours" />
+
+    <Spinner
+        android:id="@+id/minute"
+        app:layout_constraintStart_toEndOf="@+id/hour"
+        app:layout_constraintTop_toBottomOf="@+id/reminderTime"
+        android:layout_width="@dimen/spinner_width"
+        android:layout_height="@dimen/spinner_height"
+        android:entries="@array/minutes" />
+
+    <TextView
+        android:id="@+id/searchMile"
+        android:layout_marginTop="@dimen/setting_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_mile"
+        android:textSize="@dimen/search_mile_text" />
+
+    <EditText
+        android:id="@+id/mile"
+        app:layout_constraintStart_toEndOf = "@+id/searchMile"
+        app:layout_constraintTop_toBottomOf="@+id/hour"
+        android:layout_width="@dimen/user_width"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/selectGender"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/setting_margin"
+        app:layout_constraintTop_toBottomOf="@+id/searchMile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gender"
+        android:textSize="@dimen/gender_text" />
+
+    <Spinner
+        android:id="@+id/gender"
+        android:layout_marginTop="@dimen/setting_margin"
+        app:layout_constraintStart_toEndOf="@+id/selectGender"
+        app:layout_constraintTop_toBottomOf="@+id/searchMile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/gender" />
+
+    <TextView
+        android:id="@+id/ageRange"
+        android:layout_marginTop="@dimen/setting_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/age_range"
+        android:textSize="@dimen/age_range_size" />
+
+    <EditText
+        android:id="@+id/rangeLow"
+        android:layout_width="@dimen/age_range"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/ageRange"
+        app:layout_constraintTop_toBottomOf="@+id/selectGender" />
+
+    <TextView
+        android:id="@+id/ageTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/to_text"
+        android:text="@string/to"
+        app:layout_constraintStart_toEndOf="@+id/rangeLow"
+        app:layout_constraintTop_toBottomOf="@+id/selectGender" />
+
+    <EditText
+        android:id="@+id/rangeHigh"
+        android:layout_width="@dimen/age_range"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/ageTo"
+        app:layout_constraintTop_toBottomOf="@+id/selectGender" />
+
+    <Switch
+        android:id="@+id/privacy"
+        android:layout_marginTop="@dimen/setting_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rangeLow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize= "@dimen/privacy_font"
+        android:text="@string/set_privacy" />
+
+    <Button
+        android:id="@+id/saveButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/privacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save" />
+
+</android.support.constraint.ConstraintLayout>

@@ -15,4 +15,11 @@
     <string name="item_title">North Seattle Community College</string>
     <string name="item_desc">This is North Seattle Community College.</string>
     <string name="like_button">Like</string>
+    <string name="user_login_name">Display Name: </string>
+    <string name="reminder_time">Daily Matches Reminder Time</string>
+    <string name="search_mile">Maximum Distance Search (mile)</string>
+    <string name="gender">Gender</string>
+    <string name="age_range">Interested Age Range</string>
+    <string name="to">To</string>
+    <string name="set_privacy">Set Privacy</string>
 </resources>
