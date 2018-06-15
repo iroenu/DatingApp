@@ -137,6 +137,7 @@
         android:id="@+id/settingMessage"
         android:layout_width="@dimen/message_width"
         android:layout_height="@dimen/message_height_new"
+        android:textColor="@color/red"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/saveButton"/>
 

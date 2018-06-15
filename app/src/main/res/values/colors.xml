@@ -12,4 +12,5 @@
     <color name="card_text_color">#424242</color>
     <color name="su_title_color">#9E9E9E</color>
     <color name="button_tint_color">#000000</color>
+    <color name="red">#fd0000</color>
 </resources>
