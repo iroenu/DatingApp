@@ -28,6 +28,7 @@ public class SettingFragment extends Fragment{
 
     public EditText name, mile, rangeLow, rangeHigh;
     public Spinner hour, minute, gender;
+    public TextView message;
     public Switch privacy;
     public Button save;
 
@@ -46,6 +47,7 @@ public class SettingFragment extends Fragment{
         rangeHigh = view.findViewById(R.id.rangeHigh);
         privacy = view.findViewById(R.id.privacy);
         save = view.findViewById(R.id.saveButton);
+        message = view.findViewById(R.id.settingMessage);
 
         save.setOnClickListener(v -> {
 
@@ -56,17 +58,10 @@ public class SettingFragment extends Fragment{
                 if(searchMile >= 0) {
                     if (low < high) {
                         updateDatabase(v);
-                    } else {
-                        Toast.makeText(v.getContext(), "Please enter the correct age range. From low to High.",
-                                Toast.LENGTH_LONG).show();
                     }
-                } else {
-                    Toast.makeText(v.getContext(), "Search mile must greater or equal to 0 mile.",
-                            Toast.LENGTH_LONG).show();
                 }
                 } catch (NumberFormatException e) {
-                    Toast.makeText(v.getContext(), "Please enter only numbers for age range and search mile.",
-                            Toast.LENGTH_LONG).show();
+                    message.setText("Please enter only numbers for age range and search mile.");
                 }
 
         });
@@ -173,7 +168,6 @@ public class SettingFragment extends Fragment{
         protected void onPostExecute(Setting settings) {
             SettingFragment fragment = (SettingFragment) weakFragment.get();
             if(settings == null || fragment==null) {
-                Toast.makeText(weakFragment.get().getContext(), "Settings not updated", Toast.LENGTH_SHORT).show();
                 return;
             }
                 fragment.name.setText(settings.getDisplayName());
@@ -187,22 +181,6 @@ public class SettingFragment extends Fragment{
 
                 Toast.makeText(weakFragment.get().getContext(), "Settings updated", Toast.LENGTH_SHORT).show();
 
-/*
-            SettingFragment fragment = (SettingFragment) weakFragment.get();
-            if(settings == null || fragment == null) {
-                return;
-            }
-
-
-            fragment.user.setText(settings.getUser());
-            fragment.hour.setSelection(getIndex(fragment.hour,String.valueOf(settings.getHour())));
-            fragment.minute.setSelection(getIndex(fragment.minute,String.valueOf(settings.getMinute())));
-            fragment.mile.setText(""+ settings.getSearchMile());
-            fragment.gender.setSelection(getIndex(fragment.gender,settings.getGender()));
-            fragment.rangeLow.setText("" + settings.getAgeRangeLow());
-            fragment.rangeHigh.setText("" + settings.getAgeRangeHigh());
-            fragment.privacy.setSelected(!settings.isPrivacy());
-*/
         }
 
     }

@@ -34,4 +34,6 @@
     <dimen name="privacy_font">18sp</dimen>
     <dimen name="age_range">50dp</dimen>
     <dimen name="to_text">30sp</dimen>
+    <dimen name="message_width">300dp</dimen>
+    <dimen name="message_height_new">50dp</dimen>
 </resources>

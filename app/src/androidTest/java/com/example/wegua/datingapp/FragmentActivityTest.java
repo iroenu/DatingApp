@@ -5,11 +5,13 @@ import android.support.test.espresso.Espresso;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import static com.example.wegua.datingapp.TestUtils.waitFor;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -20,9 +22,14 @@ import static android.support.test.espresso.intent.matcher.IntentMatchers.hasCom
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExtra;
 import static android.support.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static android.support.test.espresso.matcher.ViewMatchers.isNotChecked;
+import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.Is.is;
+
 import android.support.test.espresso.contrib.RecyclerViewActions;
 
 @RunWith(AndroidJUnit4.class)
@@ -69,9 +76,36 @@ public class FragmentActivityTest {
             onView(withId(R.id.recycler_view)).perform(RecyclerViewActions.scrollToPosition(1));
             
             TestUtils.rotateScreen(activityTestRule.getActivity());
+            TestUtils.rotateScreen(activityTestRule.getActivity());
 
             onView(withText("Setting")).perform(click());
-//            onView(withId(R.id.textView60)).check(matches(withText((R.string.setting_text))));
+
+            onView(withId(R.id.name)).perform(typeText("AWP"));
+
+            onView(isRoot()).perform(waitFor(1000));
+            onView(withId(R.id.hour)).perform(click());
+            onData(allOf(is(instanceOf(String.class)))).atPosition(2).perform(click());
+            Espresso.closeSoftKeyboard();
+
+            onView(isRoot()).perform(waitFor(1000));
+            onView(withId(R.id.minute)).perform(click());
+            onData(allOf(is(instanceOf(String.class)))).atPosition(2).perform(click());
+
+            onView(isRoot()).perform(waitFor(1000));
+            onView(withId(R.id.mile)).perform(typeText("50"));
+            Espresso.closeSoftKeyboard();
+
+            onView(isRoot()).perform(waitFor(1000));
+            onView(withId(R.id.gender)).perform(click());
+            onData(allOf(is(instanceOf(String.class)))).atPosition(1).perform(click());
+            Espresso.closeSoftKeyboard();
+
+            onView(withId(R.id.rangeLow)).perform(typeText("18"));
+            onView(withId(R.id.rangeHigh)).perform(typeText("50"));
+
+            Espresso.closeSoftKeyboard();
+            onView(withId(R.id.saveButton)).perform(click());
+            Espresso.closeSoftKeyboard();
             TestUtils.rotateScreen(activityTestRule.getActivity());
 
             onView(withText("Profile")).perform(click());

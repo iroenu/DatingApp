@@ -60,8 +60,7 @@ public class MatchesFragment extends Fragment {
                              double lon2 = currentLocation.getLongitude();
 
                              double distance = distance(lat1, lon1, lat2, lon2);
-                             System.out.println("##################The distance is " + distance + ".  #############################");
-                             if (distance <= 10) {
+                             if (distance <= 400) {
 
                                  foundMatches.add(matches.get(i));
                              }
@@ -79,32 +78,12 @@ public class MatchesFragment extends Fragment {
                          recyclerView.setAdapter(adapter);
 
                      });
-             recyclerView.setHasFixedSize(true);
-             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-             return recyclerView;
          }
-
-     }else {
-         recyclerView.setAdapter(adapter);
-         matchView.getMatch(
-
-                 (ArrayList<Match> matches) -> {
-                     bundle.putParcelableArrayList("matches", matches);
-                     ArrayList<Match> list = bundle.getParcelableArrayList("matches");
-                     adapter.updateEmployeeListItems(matches);
-                     recyclerView.setAdapter(adapter);
-
-                 }
-         );
-
          recyclerView.setHasFixedSize(true);
          recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
          return recyclerView;
      }
-
-
-
-      return recyclerView;
+        return recyclerView;
     }
 
     public MatchesFragment(){
